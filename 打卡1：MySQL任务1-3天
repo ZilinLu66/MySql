@@ -9,3 +9,25 @@ INSERT INTO email VALUES('3','a@b.com');
 SELECT Email FROM email GROUP BY email having count (Email)>1; %查找步骤
 
 项目二：查找大国
+CREATE TABLE World( %创建表格
+country VARCHAR(50) NOT NULL,
+continent VARCHAR(50) NOT NULL,
+area INT NOT NULL,
+population INT NOT NULL,
+gdp INT NOT NULL
+);
+
+INSERT INTO World %输入表格内容
+ VALUES('Afghanistan','Asia',652230,25500100,20343000);
+INSERT INTO World
+ VALUES('Albania','Europe',28748,2831741,12960000);
+INSERT INTO World
+ VALUES('Algeria','Africa',2381741,37100000,188681000);
+INSERT INTO World
+ VALUES('Andorra','Europe',468,78115,3712000);
+INSERT INTO World
+ VALUES('Angola','Africa',1246700,20609294,100990000);
+ 
+SELECT country,populaiton,area %查找步骤
+from World
+where area>3000000 or population>25000000;
