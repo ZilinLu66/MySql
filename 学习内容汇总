@@ -44,3 +44,17 @@ HAVING子句
 字符串函数
 
 4. SQL注释
+
+5. 表操作
+表数据类型
+创建表
+添加数据
+删除表
+修改表
+
+6. 表联结
+INNER JOIN
+LEFT JOIN
+CROSS JOIN
+自连接
+UNION
