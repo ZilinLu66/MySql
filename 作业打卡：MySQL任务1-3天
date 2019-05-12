@@ -31,3 +31,12 @@ INSERT INTO World
 SELECT country,populaiton,area %查找步骤
 from World
 where area>3000000 or population>25000000;
+
+#完成项目时遇到的问题与解决方法#
+1. 更改column名
+问题：一开始将第一列抬头写成了“country”，而题目中是“name”，为了和题目统一需要更改列表名
+解决方法：在schemas中找到对应的数据库，双击Tables列表找到对应的表格，双击Columns，右键country alter name
+
+2. 运行已创建的表格
+问题：成功修改column名称之后，想要重新运行看结果，但是报错表格已创建
+解决方法：如果表格已创建，从SELECT开始选中运行即可（因为整体运行的话相当于新建表格再查找，没必要
