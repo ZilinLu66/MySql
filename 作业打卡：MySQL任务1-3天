@@ -6,9 +6,9 @@ INSERT INTO email VALUES('1','a@b.com'); %输入表格内容
 INSERT INTO email VALUES('2','c@d.com');
 INSERT INTO email VALUES('3','a@b.com');
 
-SELECT Email
+SELECT Email %查找步骤
 FROM email 
-GROUP BY email having count (Email)>1; %查找步骤
+GROUP BY email having count (Email)>1;
 
 项目二：查找大国
 CREATE TABLE World( %创建表格
