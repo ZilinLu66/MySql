@@ -6,7 +6,9 @@ INSERT INTO email VALUES('1','a@b.com'); %输入表格内容
 INSERT INTO email VALUES('2','c@d.com');
 INSERT INTO email VALUES('3','a@b.com');
 
-SELECT Email FROM email GROUP BY email having count (Email)>1; %查找步骤
+SELECT Email
+FROM email 
+GROUP BY email having count (Email)>1; %查找步骤
 
 项目二：查找大国
 CREATE TABLE World( %创建表格
@@ -29,8 +31,8 @@ INSERT INTO World
  VALUES('Angola','Africa',1246700,20609294,100990000);
  
 SELECT country,populaiton,area %查找步骤
-from World
-where area>3000000 or population>25000000;
+FROM World
+WHERE area>3000000 or population>25000000;
 
 #完成项目时遇到的问题与解决方法#
 1. 更改column名
