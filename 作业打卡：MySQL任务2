@@ -30,8 +30,29 @@ SELECT class FROM courses %查找内容
 GROUP BY class HAVING COUNT(DISTINCT student)>=5;
 
 项目四：交换工资
+CREATE TABLE salary( %创建
+id INT(255) PRIMARY KEY,
+name VARCHAR(255) NOT NULL,
+sex VARCHAR(255) NOT NULL,
+salary INT(255) NOT NULL
+);
 
+INSERT INTO salary %输入
+	VALUES('1','A','m','2500');
+INSERT INTO salary
+	VALUES('2','B','f','1500');
+INSERT INTO salary
+	VALUES('3','C','m','5500');
+INSERT INTO salary
+	VALUES('4','D','f','500');
+  
+SELECT id,name, CASE %交换
+	WHEN sex='f' THEN 'm'
+    ELSE 'f'
+END sex, salary
+FROM salary;
 
 项目五：组合两张表
+
 
 项目六：删除重复的邮箱
