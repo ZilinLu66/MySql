@@ -89,12 +89,14 @@ CREATE TABLE repeemail(
 Id int(255) NOT NULL,
 Email VARCHAR(255) NOT NULL
 );
+
 INSERT INTO repeemail
 	VALUES('1','a@b.com');
 INSERT INTO repeemail
 	VALUES('2','c@d.com');
 INSERT INTO repeemail
 	VALUES('3','a@b.com');
+	
 DELETE p2 FROM repeemail p1 JOIN repeemail p2
 ON p2.repeemail=p1.repeemail WHERE p2.Id>p1.Id;
 
