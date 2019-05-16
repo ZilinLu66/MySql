@@ -14,17 +14,17 @@ INSERT INTO courses
 INSERT INTO courses
   VALUES('D','Biology');
 INSERT INTO courses
-  VALUES('E','Math');
+  	VALUES('E','Math');
 INSERT INTO courses
-  VALUES('F','Computer');
+ 	VALUES('F','Computer');
 INSERT INTO courses
-  VALUES('G','Math');
+  	VALUES('G','Math');
 INSERT INTO courses
-  VALUES('H','Math');
+  	VALUES('H','Math');
 INSERT INTO courses
-  VALUES('I','Math');
+  	VALUES('I','Math');
 INSERT INTO courses
-  VALUES('A','Math');
+  	VALUES('A','Math');
 
 SELECT class FROM courses %查找内容
 GROUP BY class HAVING COUNT(DISTINCT student)>=5;
@@ -53,6 +53,49 @@ END sex, salary
 FROM salary;
 
 项目五：组合两张表
+CREATE TABLE person (
+Personld INT(255) PRIMARY KEY,
+FirstName VARCHAR(255) NOT NULL,
+LastName VARCHAR(255) NOT NULL
+);
 
+INSERT INTO person
+	VALUES('1','A','AA');
+INSERT INTO person
+	VALUES('2','B','BB');
+INSERT INTO person
+	VALUES('3','C','CC');
+	
+CREATE TABLE address (
+Addressld INT(255) PRIMARY KEY,
+Personld INT(255) NOT NULL,
+City VARCHAR(255) NOT NULL,
+State VARCHAR(255) NOT NULL
+);
+
+INSERT INTO address
+	VALUES('11','2','ABCD','AABBCCDD');
+INSERT INTO address
+	VALUES('22','3','EFGH','EEFFGGHH');
+INSERT INTO address
+	VALUES('33','4','WXYZ','WWXXYYZZ');
+	
+SELECT person.FirstName, person.LastName, address.City, address.State
+FROM person LEFT JOIN address
+ON person.Personld = address.Personld;
 
 项目六：删除重复的邮箱
+CREATE TABLE repeemail(
+Id int(255) NOT NULL,
+Email VARCHAR(255) NOT NULL
+);
+INSERT INTO repeemail
+	VALUES('1','a@b.com');
+INSERT INTO repeemail
+	VALUES('2','c@d.com');
+INSERT INTO repeemail
+	VALUES('3','a@b.com');
+DELETE p2 FROM repeemail p1 JOIN repeemail p2
+ON p2.repeemail=p1.repeemail WHERE p2.Id>p1.Id;
+
+
