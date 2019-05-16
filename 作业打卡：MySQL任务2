@@ -1,7 +1,36 @@
 #作业#
 项目三：超过5名学生的课
+CREATE TABLE courses( %创建表格
+student VARCHAR(255) NOT NULL,
+class VARCHAR(255) NOT NULL
+);
+
+INSERT INTO courses %插入内容
+  VALUES('A','Math');
+INSERT INTO courses
+  VALUES('B','English');
+INSERT INTO courses
+  VALUES('C','Math');
+INSERT INTO courses
+  VALUES('D','Biology');
+INSERT INTO courses
+  VALUES('E','Math');
+INSERT INTO courses
+  VALUES('F','Computer');
+INSERT INTO courses
+  VALUES('G','Math');
+INSERT INTO courses
+  VALUES('H','Math');
+INSERT INTO courses
+  VALUES('I','Math');
+INSERT INTO courses
+  VALUES('A','Math');
+
+SELECT class FROM courses %查找内容
+GROUP BY class HAVING COUNT(DISTINCT student)>=5;
 
 项目四：交换工资
+
 
 项目五：组合两张表
 
