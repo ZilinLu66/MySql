@@ -33,6 +33,32 @@ IN (SELECT MAX(Salary), DepartmentId FROM employee
 GROUP BY DepartmentId);
 
 项目八: 换座位
+CREATE TABLE seat(
+id INT(255) NOT NULL,
+student VARCHAR(255) NOT NULL
+);
 
+INSERT INTO seat
+	VALUES('1','Abbot');
+INSERT INTO seat
+	VALUES('2','Doris');
+INSERT INTO seat
+	VALUES('3','Emerson');
+INSERT INTO seat
+	VALUES('4','Green');
+INSERT INTO seat
+	VALUES('5','Jeams');
+
+SELECT id,student FROM
+(
+SELECT id-1 AS id, student FROM seat WHERE MOD(id,2)=0
+UNION
+SELECT id+1 AS id, student FROM seat WHERE MOD(id,2)=1
+AND id!=(SELECT COUNT(*) FROM seat)
+UNION
+SELECT id, student FROM seat where mod(id,2)=1
+AND id=(SELECT COUNT(*) FROM seat)
+) seat ORDER BY id;
 
 项目九: 分数排名
+
