@@ -61,4 +61,25 @@ AND id=(SELECT COUNT(*) FROM seat)
 ) seat ORDER BY id;
 
 项目九: 分数排名
+CREATE TABLE scores(
+Id INT(255) NOT NULL,
+Score DECIMAL(3,2)
+);
 
+INSERT INTO scores
+	VALUES('1','3.5');
+INSERT INTO scores
+	VALUES('2','3.65');
+INSERT INTO scores
+	VALUES('3','4.0');
+INSERT INTO scores
+	VALUES('4','3.85');
+INSERT INTO scores
+	VALUES('5','4.0');
+INSERT INTO scores
+	VALUES('6','3.65');
+
+SELECT score,
+	(select COUNT(DISTINCT score)
+	FROM scores WHERE score>=s.score) RANK
+FROM scores s ORDER BY score DESC;
