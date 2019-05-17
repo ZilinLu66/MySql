@@ -1,4 +1,68 @@
 #作业#
 项目十：行程和用户
+CREATE TABLE trips(
+Id INT(255) NOT NULL,
+Client_Id INT(255) NOT NULL,
+Driver_Id INT(255) NOT NULL,
+City_Id INT(255) NOT NULL,
+Status ENUM('completed','cancelled_by_driver','cancelled_by_client'),
+Request_at VARCHAR(255)
+);
+
+INSERT INTO trips
+	VALUES('1','1','10','1','completed','2013-10-01');
+INSERT INTO trips
+	VALUES('2','2','11','1','cancelled_by_driver','2013-10-01');
+INSERT INTO trips
+	VALUES('3','3','12','6','completed','2013-10-01');
+INSERT INTO trips
+	VALUES('4','4','13','6','cancelled_by_client','2013-10-01');
+INSERT INTO trips
+	VALUES('5','1','10','1','completed','2013-10-02');
+INSERT INTO trips
+	VALUES('6','2','11','6','completed','2013-10-02');
+INSERT INTO trips
+	VALUES('7','3','12','6','completed','2013-10-02');
+INSERT INTO trips
+	VALUES('8','2','12','12','completed','2013-10-03');
+INSERT INTO trips
+	VALUES('9','3','10','12','completed','2013-10-03');
+INSERT INTO trips
+	VALUES('10','4','13','12','cancelled_by_driver','2013-10-03');
+  
+CREATE TABLE users(
+Users_Id INT(255) NOT NULL,
+Banned VARCHAR(255) NOT NULL,
+Role ENUM('client','driver','partner')
+);
+
+INSERT INTO users
+	VALUES('1','No','client');
+INSERT INTO users
+	VALUES('2','Yes','client');
+INSERT INTO users
+	VALUES('3','No','client');
+INSERT INTO users
+	VALUES('4','No','client');
+INSERT INTO users
+	VALUES('10','No','driver');
+INSERT INTO users
+	VALUES('11','No','driver');
+INSERT INTO users
+	VALUES('12','No','driver');
+INSERT INTO users
+	VALUES('13','No','driver');
+  
+SELECT t.Request_at DAY, ROUND(
+SUM((CASE WHEN t.Status LIKE 'cancelled%'
+THEN 1 ELSE 0 end)
+)/COUNT(*),2) AS 'Cancellation Rate'
+FROM trips t
+INNER JOIN USERS u ON u.Users_Id=t.Client_Id AND u.Banned='No'
+WHERE t.Request_at BETWEEN '2013-10-01' AND '2013-10-03'
+GROUP BY t.Request_at;
+
 项目十一：各部门前3高工资的员工
+
+
 项目十二：分数排名
