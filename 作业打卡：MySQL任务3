@@ -80,6 +80,6 @@ INSERT INTO scores
 	VALUES('6','3.65');
 
 SELECT score,
-	(select COUNT(DISTINCT score)
-	FROM scores WHERE score>=s.score) RANK
+(SELECT COUNT(DISTINCT score)
+FROM scores WHERE score>=s.score) RANK
 FROM scores s ORDER BY score DESC;
